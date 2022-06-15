@@ -15,34 +15,32 @@
 package cmd
 
 import (
-	"github.com/ricardo-ch/go-kafka-connect/v3/lib/connectors"
+	"github.com/heetch/go-kafka-connect/v3/pkg/connectors"
 	"github.com/spf13/cobra"
 )
 
-// deleteCmd represents the delete command
-var deleteCmd = &cobra.Command{
-	Use:   "delete",
-	Short: "Delete an existing connector",
-	RunE:  RunEDelete,
+// resumeCmd represents the resume command
+var resumeCmd = &cobra.Command{
+	Use:   "resume",
+	Short: "Resume a connector",
+	RunE:  RunEResume,
 }
 
-//RunEDelete ...
-func RunEDelete(cmd *cobra.Command, args []string) error {
+//RunEResume ...
+func RunEResume(cmd *cobra.Command, args []string) error {
 	req := connectors.ConnectorRequest{
 		Name: connector,
 	}
-
-	resp, err := getClient().DeleteConnector(req, sync)
+	resp, err := getClient().ResumeConnector(req, sync)
 	if err != nil {
 		return err
 	}
-
 	return printResponse(resp)
 }
 
 func init() {
-	RootCmd.AddCommand(deleteCmd)
+	RootCmd.AddCommand(resumeCmd)
 
-	deleteCmd.PersistentFlags().BoolVarP(&sync, "sync", "y", false, "execute synchronously")
-	deleteCmd.PersistentFlags().StringVarP(&connector, "connector", "n", "", "name of the target connector")
+	resumeCmd.PersistentFlags().BoolVarP(&sync, "sync", "y", false, "execute synchronously")
+	resumeCmd.PersistentFlags().StringVarP(&connector, "connector", "n", "", "name of the target connector")
 }
