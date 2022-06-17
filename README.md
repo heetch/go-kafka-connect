@@ -26,20 +26,18 @@ It also contains two 'bonus' features:
   Before being updating it check the current config. If it match the deployment's config, nothing will be done.
   The new connector is then deployed, and resumed. This function is always synchronous.
 
-# Running
+## Installation
 
-download binary for your system:
+Install binary using go:
 
-- linux: `wget https://github.com/ricardo-ch/go-kafka-connect/releases/download/1.0.0/kc-cli`
-- windows: `wget https://github.com/ricardo-ch/go-kafka-connect/releases/download/1.0.0/kc-cli.exe`
-- mac: `wget https://github.com/ricardo-ch/go-kafka-connect/releases/download/1.0.0/kc-cli_mac`
+```bash
+go install github.com/heetch/go-kafka-connect/cmd/kc-cli@latest
+kc-cli --help
+```
 
-set executable if needed
-`chmod +x kc-cli`
+NB: this assume you have go installed and `$GOBIN` inside your `$PATH`.
 
-enjoy!
-
-# Example of command
+## Example of command
 
 - Get help
 
@@ -75,17 +73,17 @@ if [ $status != 0 ]; then exit $status; fi
 ./kc-cli -u http://kafka-connect.local get --status -n my-connector
 ```
 
-# Setup environment for development
+## Setup environment for development
 
 Required:
 
-- Go 1.9
+- Go 1.17
 - Docker (for testing purpose only)
 
 run `go get -u github.com/ricardo-ch/go-kafka-connect`
 then inside repo run: `make install` to install dependencies
 
-# Testing
+## Testing
 
 For now, only integration test are available.
 run `make test-integration`

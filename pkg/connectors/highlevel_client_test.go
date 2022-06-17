@@ -215,6 +215,7 @@ func newHighLevelClient(mockBaseClient *MockBaseClient, maxParallelRequest int) 
 // - if NOT running: status call only
 // - update the connector and compare config until they are identical
 func callDeployConnector(t *testing.T, pauseBeforeDeploy, isRunning bool, configOnline, configLocal map[string]interface{}) {
+	t.Helper()
 	mockBaseClient := NewMockBaseClient(t)
 
 	mockBaseClient.On("GetConnector", mock.Anything).
