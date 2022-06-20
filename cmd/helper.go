@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/heetch/go-kafka-connect/v3/pkg/connectors"
+	"github.com/heetch/go-kafka-connect/v4/pkg/connectors"
 )
 
 func printResponse(response interface{}) error {

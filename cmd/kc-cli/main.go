@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/heetch/go-kafka-connect/v3/cmd"
+import "github.com/heetch/go-kafka-connect/v4/cmd"
 
 func main() {
 	cmd.Execute()

@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/heetch/go-kafka-connect/v3/pkg/connectors"
+	"github.com/heetch/go-kafka-connect/v4/pkg/connectors"
 	"github.com/stretchr/testify/assert"
 )
 

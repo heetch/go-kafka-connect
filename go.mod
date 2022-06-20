@@ -1,4 +1,4 @@
-module github.com/heetch/go-kafka-connect/v3
+module github.com/heetch/go-kafka-connect/v4
 
 go 1.18
 
